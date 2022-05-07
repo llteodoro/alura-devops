@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0aeb7c931a5a61206"
+  ami           = "ami-0c4f7023847b90238" #"ami-0aeb7c931a5a61206"
   instance_type = var.instancia
   key_name = var.chave
 
@@ -29,7 +29,10 @@ resource "aws_key_pair" "chave-SSH" {
     public_key = file("${var.chave}.pub")
   
 }
-
+output "IP_publico" {
+  value = aws_instance.app_server.public_ip
+  
+}
 #  user_data = <<-EOF
 #                  #!/bin/bash
 #                  cd /home/ubuntu/
