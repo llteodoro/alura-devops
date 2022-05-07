@@ -73,6 +73,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+*.hcl 
+
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -278,3 +280,10 @@ cython_debug/
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+
+# Logs
+*.log
+
+# Kubernets
+*.kube
+kubectl.*
