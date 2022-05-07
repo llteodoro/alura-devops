@@ -1,8 +1,16 @@
 - hosts: terraform-ansible
   tasks:
-    - name: Criar arquivo index
-      copy:
-        dest: /home/ubuntu/index.html
-        content: <h1> Esse bilete é verdade </h1>
-    - name: Criando Servidor 
-      shell: "nohup busybox httpd -f -p 8080 &"
+    - name: Instalando Depedências Python
+      apt:
+        pkg: 
+          - python3
+          - virtualenv
+        update_cache: yes
+      become: yes 
+    - name: Instalando Depedências com PIP
+      pip:
+        virtualenv: /home/ubuntu/tcc/venv
+        name:
+          - django 
+          - djangorestframework
+    
