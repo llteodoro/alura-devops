@@ -28,3 +28,9 @@ resource "aws_instance" "app_server" {
     Name = "Terceira instância"
   }
 }
+
+resource "aws_key_pair" "chave-SSH" {
+    key_name = DEV
+    public_key = file("~/.ssh/IAC-DEV.pub")
+  
+}
